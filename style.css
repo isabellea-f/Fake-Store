@@ -1,0 +1,27 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 10px;
+  max-width: 250px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: bold;
+  color: #1a7f37;
+}
+
+img {
+  height: 200px;
+}
