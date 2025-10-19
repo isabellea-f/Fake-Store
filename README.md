@@ -1,2 +1,2 @@
-# pokedex
-Pokedex playground
+# fake-store
+Fake Store API playground
