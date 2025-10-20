@@ -20,16 +20,19 @@ async function getProduct() {
       productContainer.appendChild(productCard);
 
       const productImage = document.createElement("img");
+      productImage.classList.add("product-image");
       productImage.src = product.image;
       productImage.alt = product.title;
 
       const productTitle = document.createElement("h3");
+      productTitle.classList.add("product-description");
       productTitle.textContent = `${product.title}`;
 
       const productDescription = document.createElement("p");
       productDescription.textContent = `${product.description}`;
 
       const productPrice = document.createElement("p");
+      productPrice.classList.add("product-price");
       productPrice.textContent = `${product.price}`;
 
       productCard.appendChild(productImage);
