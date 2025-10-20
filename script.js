@@ -8,28 +8,34 @@ async function getProduct() {
     }
 
     const result = await response.json();
-    console.log(result[0]);
+    /*  console.log(result[0]); */
 
-    const productImage = document.querySelectorAll(".image");
-    const title = document.querySelectorAll(".title");
-    const productDesc = document.querySelectorAll(".description");
-    const productPrice = document.querySelectorAll(".price");
+    // Loop through all items
 
-    // Display item content
-    productImage.forEach((element, index) => {
-      element.src = `${result[index].image}`;
-    });
+    const productContainer = document.querySelector(".product-container");
 
-    title.forEach((element, index) => {
-      element.textContent = `${result[index].title}`;
-    });
+    result.forEach((product) => {
+      const productCard = document.createElement("div");
+      productCard.classList.add("product-card");
+      productContainer.appendChild(productCard);
 
-    productDesc.forEach((element, index) => {
-      element.textContent = `${result[index].description}`;
-    });
+      const productImage = document.createElement("img");
+      productImage.src = product.image;
+      productImage.alt = product.title;
 
-    productPrice.forEach((element, index) => {
-      element.textContent = `${result[index].price}`;
+      const productTitle = document.createElement("h3");
+      productTitle.textContent = `${product.title}`;
+
+      const productDescription = document.createElement("p");
+      productDescription.textContent = `${product.description}`;
+
+      const productPrice = document.createElement("p");
+      productPrice.textContent = `${product.price}`;
+
+      productCard.appendChild(productImage);
+      productCard.appendChild(productTitle);
+      productCard.appendChild(productDescription);
+      productCard.appendChild(productPrice);
     });
   } catch (error) {
     console.error(error.message);
