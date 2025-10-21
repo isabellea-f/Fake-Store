@@ -19,8 +19,6 @@ async function getProduct() {
     // Loop through all items
     result.forEach((product) => {
       function showProduct() {
-        productContainer.innerHTML = "";
-
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
         productContainer.appendChild(productCard);
@@ -47,24 +45,24 @@ async function getProduct() {
         productCard.appendChild(productPrice);
       }
 
+      menFilterButton.addEventListener("click", () => {
+        if (product.category === "men's clothing") {
+          showProduct();
+        }
+      });
+
+      womenFilterButton.addEventListener("click", () => {
+        if (product.category === "women's clothing") {
+          productContainer.innerHTML = "";
+          showProduct();
+        }
+      });
       /* 
       if (product.category === "men's clothing") {
         showProduct();
       } else if (product.category === "women's clothing") {
         showProduct();
       } */
-    });
-
-    menFilterButton.addEventListener("click", () => {
-      if (product.category === "men's clothing") {
-        showProduct();
-      }
-    });
-
-    womenFilterButton.addEventListener("click", () => {
-      if (product.category === "women's clothing") {
-        showProduct();
-      }
     });
   } catch (error) {
     console.error(error.message);
